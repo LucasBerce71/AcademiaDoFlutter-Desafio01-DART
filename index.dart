@@ -12,6 +12,11 @@ void main() {
     'João Rahman|55|Jornalista|SP',
   ];
 
+  List<dynamic> rahman = [];
+  List<dynamic> silva = [];
+  List<dynamic> verne = [];
+  List<dynamic> familias = [];
+
   pacientes.forEach((paciente) {
     arrayConvertido.add(paciente.split("|"));
     arrayConvertido.forEach((item) {
@@ -28,9 +33,21 @@ void main() {
   pacientes.forEach((paciente) {
     arrayConvertido.add(paciente.split("|"));
     arrayConvertido.forEach((item) {
-      
+      if (item[0].contains("Rahman") && !rahman.contains(item[0])) {
+        rahman.add(item[0]);
+      }
+      if (item[0].contains("Silva") && !silva.contains(item[0])) {
+        silva.add(item[0]);
+      }
+      if(item[0].contains("Verne") && !verne.contains(item[0])) {
+        verne.add(item[0]);
+      }
     });
   });
+
+  print("Família Rahman" + rahman.toString());
+  print("Família Silva" + silva.toString());
+  print("Família Verne" + verne.toString());
 
 // Baseado no array acima monte um relatório onde mostre
 // Apresente a quantidade de pacientes com mais de 20 anos [V]
