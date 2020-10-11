@@ -1,8 +1,7 @@
-void main(List<String> args) {
-  List patientesWithMore20Years = List();
-  List familyArray = List();
-  
-  var pacientes = [
+void main() {
+  List<dynamic> arrayConvertido = [];
+  List<dynamic> mais20Anos = [];
+  List<dynamic> pacientes = [
     'Rodrigo Rahman|35|desenvolvedor|SP',
     'Manoel Silva|12|estudante|MG',
     'Joaquim Rahman|18|estudante|SP',
@@ -13,27 +12,27 @@ void main(List<String> args) {
     'João Rahman|55|Jornalista|SP',
   ];
 
-  for(int i = 0; i <= pacientes.length; i++) {
-    var generateArray = pacientes[i].split('|');
-    for(int j = 0; j <= generateArray.length; j++) {
-      if(j == 2) {
-        if(int.parse(generateArray[j]) > 20) {
-          patientesWithMore20Years.add(generateArray[j]);
+  pacientes.forEach((paciente) {
+    arrayConvertido.add(paciente.split("|"));
+    arrayConvertido.forEach((item) {
+      if (int.parse(item[1]) > 20) {
+        if (!mais20Anos.contains(item[1])) {
+          mais20Anos.add(item[1]);
         }
       }
-    } 
-  }
+    });
+  });
 
-    for(int i = 0; i <= pacientes.length; i++) {
-    var generateArray = pacientes[i].split('|');
-    for(int j = 0; j <= generateArray.length; j++) {
-      if(j == 1) {
-        familyArray.add(generateArray[j].split(" "));
-      }
-      print('Família ${familyArray[j]}');
-    } 
-  }
+  print("Existem ${mais20Anos.length} pacientes com mais de 20 anos de idade");
 
-  print('Existem ${patientesWithMore20Years.length} com mais de 20');
+  pacientes.forEach((paciente) {
+    arrayConvertido.add(paciente.split("|"));
+    arrayConvertido.forEach((item) {
+      
+    });
+  });
 
+// Baseado no array acima monte um relatório onde mostre
+// Apresente a quantidade de pacientes com mais de 20 anos [V]
+// Agrupar os pacientes por familia(considerar o sobrenome) apresentar por familia.
 }
