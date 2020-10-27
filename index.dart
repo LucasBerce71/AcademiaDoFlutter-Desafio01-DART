@@ -15,17 +15,13 @@ void main() {
   List<dynamic> rahman = [];
   List<dynamic> silva = [];
   List<dynamic> verne = [];
-  List<dynamic> familias = [];
+  var qtde;
 
   pacientes.forEach((paciente) {
     arrayConvertido.add(paciente.split("|"));
-    arrayConvertido.forEach((item) {
-      if (int.parse(item[1]) > 20) {
-        if (!mais20Anos.contains(item[1])) {
-          mais20Anos.add(item[1]);
-        }
-      }
-    });
+    if (int.tryParse(arrayConvertido[1]) > 20) {
+      qtde++;
+    }
   });
 
   print("Existem ${mais20Anos.length} pacientes com mais de 20 anos de idade");
